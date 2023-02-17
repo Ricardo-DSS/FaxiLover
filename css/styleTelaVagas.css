@@ -1,0 +1,50 @@
+/*Configuração Barra de navegação*/
+
+* {
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+li, a {
+    font-family: "Montserrat", sans-serif; 
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 4%;
+    background-size: 100%;
+    background-color: purple;
+}
+
+#logo {
+    cursor: pointer;
+    width: 130px;
+    height: 130px;
+    margin-left: 3%;
+}
+
+.navLink {
+    list-style: none;
+}
+
+.navLink li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.navLink li a {
+    transition: all 0.3s ease 0s;
+}
+
+.navLink li a:hover {
+    color: lightblue;
+}
+
+/*Fim barra de navegação*/

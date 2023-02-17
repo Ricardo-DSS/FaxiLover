@@ -6,13 +6,6 @@
     margin: 0%;
 }
 
-body {
-    width: 100%;
-    height: 100%;
-    background-color: #fca1fc;
-    opacity: 0.99;
-}
-
 #navegacao {
     display: flex;
     justify-content: space-between;
@@ -57,41 +50,37 @@ li, a {
 
 /*Fim barra de navegação*/
 
-h3 {
-    padding-top: 2%;
+h2, p {
     text-align: center;
-    font-size: 30px;
+    padding: 1%;
 }
 
-#blocoCadastrar {
-    margin: 2% 5% 2% 5%;
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 10px;
+#formularioPerfil {
+    display: flex;
+    padding-top: 1%;
+    padding-right: 3%;
+    margin-right: 2%;
+    margin-left: 4%;
 }
 
-#blocoCadastrar #formulario form input {
-    border: 2px solid purple;
-    border-radius: 2px;
+#formularioInterno {
+    margin-right: 20%;
+}
+
+#formularioPerfil input {
     width: 100%;
-    padding: 12px 20px;
-    box-sizing: border-box;
-}
-
-#blocoCadastrar #formulario form input:focus {
-    background-color: rgb(209, 12, 209);
-}
-
-#formulario {
-    padding: 4% 30% 4% 30%;
-}
-
-.btnRadio {
-    border: 2px solid black;
     padding: 10px;
 }
 
-input[type=radio] {
-    display: inline;
-    height: 1em;
+.botao {
+    height: 100px;
+    width: 200px;
+    border: 2px solid purple;
+    margin-top: 10px;
+    background-color: rgb(247, 247, 247);
+}
+
+.botao:hover {
+    background-color: purple;
+    color: white;
 }
