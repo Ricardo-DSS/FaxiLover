@@ -36,8 +36,20 @@
                 <label for="4">De R$ 300,00 a R$ 400,00</label>
             </form>
         </div>
-        <div>
-            
+        <div class="bloco">
+            <div class="card">
+                <div class="info">
+                    <h3 class="titulo">Titulo Aqui</h3>
+                    <p class="descricao">Descrição Aqui</p>
+                    <p class="logradouro">Rua Aqui</p>
+                    <p class="numero">Numero Aqui</p>
+                    <p class="bairro">Bairro Aqui</p>
+                    <p class="cidade">Cidade Aqui</p>
+                </div>
+                <div>
+                    <button>Tenho Interesse</button>
+                </div>
+            </div>
         </div>
     </body>
 </html>

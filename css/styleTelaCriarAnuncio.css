@@ -48,18 +48,3 @@ header{
 }
 
 /*Fim barra de navegação*/
-
-.bloco {
-    background-color: lightgrey;
-    margin: 2% 5%;
-}
-
-.bloco .card {
-    padding: 5%;
-    border: 1px solid black;
-    display: flex;
-}
-
-.bloco .card .info {
-    padding: 1%;
-}
