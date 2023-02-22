@@ -1,3 +1,13 @@
+<?php
+    namespace Projeto\FaxiLover\Tela;
+
+    require_once("../DAO/Conexao.php");
+    require_once("../DAO/Cadastrar.php");
+
+    use Projeto\FaxiLover\DAO\Conexao;
+    use Projeto\FaxiLover\DAO\Cadastrar;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -20,15 +30,9 @@
             </nav>
         </header>
 
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            <label for="image">Selecione uma imagem</label>
-            <input type="file" name="image"  accept=".png, .jpg">
-            <button type=submit name="submit">Salvar</button>
-        </form>
-
         <p>ATENÇÃO! Para salvar o anúncio com uma imagem você deve clicar em "Salvar imagem" antes da opção "Cadastrar Anúncio"</p>
 
-        <form id="CadastrarAnuncio" method="POST">
+        <form id="CadastrarAnuncio" method="POST" enctype="multipart/form-data">
             <label for="titulo">Título</label>
             <input type="text" name="titulo" id="titulo" required>
 
@@ -48,9 +52,41 @@
             <input type="text" name="cidade" id="cidade" required>
 
             <label for="valor">Valor</label>
-            <input type="text" name="cidade" id="cidade" placeholder="100.00" required>
+            <input type="number" name="valor" id="valor" placeholder="100.00" required>
 
-            <input type="submit" value="Cadastrar Anúncio">
+            <label for="image">Selecione uma imagem</label>
+            <input type="file" name="image"  accept=".png, .jpg" required>
+
+            <button type=submit name="submit">Cadastrar</button>
+
+            <?php
+                if(isset($_POST['submit'])) {
+                    $caminho = "";
+                    $conexao = new Conexao();
+                    $insert  = new Cadastrar();
+
+                    $nome       = $_FILES['image']['name'];
+                    $tmp        = $_FILES['image']['tmp_name'];
+                    $tamanho    = $_FILES['image']['size'];
+                    $errors     = $_FILES['image']['error'];
+
+                    $imagemTipo = explode('.', $nome);
+                    $imagemTipoNew = strtolower(end($imagemTipo));
+
+                    if($errors === 0) {
+                        if($tamanho < 4000000) {
+                            $novoNome = uniqid('', true).".".$imagemTipoNew;
+                            $caminho = 'uploads/'.$novoNome;
+                            move_uploaded_file($tmp, $caminho);
+                        } else {
+                            echo "Imagem grande demais!";
+                        }
+                    } else {
+                        echo "Houve um erro!";
+                    }
+                    echo $insert->inserir($conexao, '123456789', $_POST['titulo'], $_POST['descricao'], $_POST['logradouro'], $_POST['numero'], $_POST['bairro'], $_POST['cidade'], $_POST['valor'], $caminho);
+                } 
+            ?>
         </form>
     </body>
 </html>
